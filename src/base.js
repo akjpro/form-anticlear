@@ -1,41 +1,57 @@
+var formAntiClear = {}
+
+formAntiClear.clear=function(selector=".form-anticlear"){
+	document.querySelectorAll(selector).forEach(
+		function(item){item.reset();}
+	)
+}
+
+function isAntiClearNone(element) {
+	if (element.className.split(' ').indexOf('form-anticlear-none')>=0) return true;
+    return element.parentElement && isAntiClearNone(element.parentElement, 'form-anticlear-none');
+}
+
 window.onbeforeunload=function(){
-	$('.form-anticlear input[type!="radio"], .form-anticlear select, .form-anticlear textarea').each(
-		function(index){ 
-			if($(this).val()!==null && $(this).val()!==""){
-				if($(this).attr('type')=="checkbox"){
-					localStorage.setItem("frf_"+$(this).attr('name'),$(this).is(":checked"));
+	document.querySelectorAll(".form-anticlear input:not([type='radio']), .form-anticlear select, .form-anticlear textarea").forEach(
+		function(item){ 
+			if(!isAntiClearNone(item) && item.value!==null && item.value!==""){
+				if(item.type=="checkbox"){
+					localStorage.setItem("frf_"+item.name,item.checked);
 				}else{
-					localStorage.setItem("frf_"+$(this).attr('name'),$(this).val());
+					localStorage.setItem("frf_"+item.name,item.value);
 				}
 			}
 		}
 	);
-	$('.form-anticlear input[type="radio"]:checked').each(
-		function(index){
-			localStorage.setItem("frf_"+$(this).attr('name'),$(this).val());
+	document.querySelectorAll('.form-anticlear input[type="radio"]:checked').forEach(
+		function(item){
+			if(!isAntiClearNone(item)){
+				localStorage.setItem("frf_"+item.name,item.value);
+			}
 		}
 	);
 }
+
 window.onload=function(){
 	var radioGroups=[];
-	$('.form-anticlear input[type!="radio"], .form-anticlear textarea,.form-anticlear select').each(
-		function(index){
-			var inputName="frf_"+$(this).attr('name');
+	document.querySelectorAll(".form-anticlear input:not([type='radio']), .form-anticlear select, .form-anticlear textarea").forEach(
+		function(item){
+			var inputName="frf_"+item.name;
 			if(localStorage.getItem(inputName)!==null){
-				if($(this).attr('type')=="checkbox"){
-					$(this).prop('checked', localStorage.getItem(inputName)=='true');
+				if(item.type=="checkbox"){
+					item.checked=localStorage.getItem(inputName)=='true';
 				}else{
-					$(this).val(localStorage.getItem(inputName));
+					item.value=localStorage.getItem(inputName);
 				}
 			}
 		}
 	);
-	$('.form-anticlear input[type="radio"]').each(
-		function(index){
-			var inputName="frf_"+$(this).attr('name');
+	document.querySelectorAll('.form-anticlear input[type="radio"]').forEach(
+		function(item){
+			var inputName="frf_"+item.name;
 			if(radioGroups.indexOf(inputName)<0 && localStorage.getItem(inputName)!==null){
 				radioGroups.push(inputName);
-				$("input[type='radio'][name='"+$(this).attr('name')+"'][value='"+localStorage.getItem(inputName)+"']").prop("checked",true);
+				document.querySelector("input[type='radio'][name='"+item.name+"'][value='"+localStorage.getItem(inputName)+"']").checked=true;
 			}
 		}
 	);
