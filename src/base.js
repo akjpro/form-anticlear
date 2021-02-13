@@ -1,5 +1,6 @@
 var formAntiClear = {}
 const event = document.createEvent('Event');
+event.initEvent('anticleared', true, true);
 formAntiClear.clear=function(selector=".form-anticlear"){
 	document.querySelectorAll(selector).forEach(
 		function(item){item.reset();}
@@ -53,5 +54,5 @@ window.onload=function(){
 		}
 	);
 	localStorage.clear();
-	event.initEvent('anticleared', true, true);
+	document.dispatchEvent(event);
 }
