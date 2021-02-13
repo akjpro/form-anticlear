@@ -1,6 +1,8 @@
 # form-anticlear
+<h4>Version : 1.2</h4>
 
-Easy code to avoid loss of form contents even if we refresh the page. 
+Easy code to avoid loss of form contents even if we refresh the page.
+Developed in pure Javascript. So, not required any additional libraries like jQuery.
 
 <h3>Usage</h3>
 
