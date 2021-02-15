@@ -47,6 +47,7 @@ Developed in pure Javascript. So, not required any additional libraries like jQu
  <form class="">
     <input type="text" name="txt_name" placeholder="Enter your Name">
  </form>
+ //Try to refresh this page -> Form data will lose
  
  <h4> Form with form-anticlear class</h4>
 <h6>Code:</h6>
@@ -59,4 +60,5 @@ Developed in pure Javascript. So, not required any additional libraries like jQu
  <form class="form-anticlear">
     <input type="text" name="txt_name" placeholder="Enter your Name">
  </form>
+ //Try to refresh this page -> Data still will be there
 <script src="https://cdn.jsdelivr.net/gh/akjpro/form-anticlear/base.js"></script>
