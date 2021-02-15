@@ -8,7 +8,7 @@ Developed in pure Javascript. So, not required any additional libraries like jQu
 <h3>Usage</h3>
 
 <h4>Include form-anticlear library in your website</h4>
-<pre><script src="https://cdn.jsdelivr.net/gh/akjpro/form-anticlear/base.js"></script></pre>
+<pre>&lt;script src="https://cdn.jsdelivr.net/gh/akjpro/form-anticlear/base.js">&lt;/script></pre>
 
 <h4>Add class <code>form-anticlear</code> in form or any elements.(This will consider as the parent-element, and all its child elements will get this affected)</h4>
 <pre>&lt;form class="form-anticlear"></code><br><code>&nbsp;&nbsp;&nbsp;&lt;input type="text" name="myText"></code><br><code>&lt;/form></code></pre>
@@ -40,10 +40,23 @@ Developed in pure Javascript. So, not required any additional libraries like jQu
 <h6>Code:</h6>
 <pre>
   &lt;form class="">
-    &lt;input type="text" name="txt_name">
+    &lt;input type="text" name="txt_name" placeholder="Enter your Name">
   &lt;/form>
 </pre>
 <h6>Output:</h6>
  <form class="">
-    <input type="text" name="txt_name">
+    <input type="text" name="txt_name" placeholder="Enter your Name">
  </form>
+ 
+ <h4> Form with from_anticlear</h4>
+<h6>Code:</h6>
+<pre>
+  &lt;form class="from_anticlear">
+    &lt;input type="text" name="txt_name" placeholder="Enter your Name">
+  &lt;/form>
+</pre>
+<h6>Output:</h6>
+ <form class="from_anticlear">
+    <input type="text" name="txt_name" placeholder="Enter your Name">
+ </form>
+<script src="https://cdn.jsdelivr.net/gh/akjpro/form-anticlear/base.js"></script>
