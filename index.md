@@ -36,7 +36,7 @@ Developed in pure Javascript. So, not required any additional libraries like jQu
 
 <hr>
 <h2>Examples</h2>
-<h4> Normal Form without from_anticlear</h4>
+<h4> Normal Form without from-anticlear class</h4>
 <h6>Code:</h6>
 <pre>
   &lt;form class="">
@@ -48,15 +48,15 @@ Developed in pure Javascript. So, not required any additional libraries like jQu
     <input type="text" name="txt_name" placeholder="Enter your Name">
  </form>
  
- <h4> Form with from_anticlear</h4>
+ <h4> Form with from-anticlear class</h4>
 <h6>Code:</h6>
 <pre>
-  &lt;form class="from_anticlear">
+  &lt;form class="from-anticlear">
     &lt;input type="text" name="txt_name" placeholder="Enter your Name">
   &lt;/form>
 </pre>
 <h6>Output:</h6>
- <form class="from_anticlear">
+ <form class="from-anticlear">
     <input type="text" name="txt_name" placeholder="Enter your Name">
  </form>
 <script src="https://cdn.jsdelivr.net/gh/akjpro/form-anticlear/base.js"></script>
