@@ -1,37 +1,49 @@
-## Welcome to GitHub Pages
+## Welcome to form-anticlear
 
-You can use the [editor on GitHub](https://github.com/akjpro/form-anticlear/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<h4>Version : 1.2</h4>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+An Easy way to avoid loss of form contents even if we refresh the page.
+Developed in pure Javascript. So, not required any additional libraries like jQuery.
 
-### Markdown
+<h3>Usage</h3>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+<h4>Include form-anticlear library in your website</h4>
+<pre><script src="https://cdn.jsdelivr.net/gh/akjpro/form-anticlear/base.js"></script></pre>
 
-```markdown
-Syntax highlighted code block
+<h4>Add class <code>form-anticlear</code> in form or any elements.(This will consider as the parent-element, and all its child elements will get this affected)</h4>
+<pre>&lt;form class="form-anticlear"></code><br><code>&nbsp;&nbsp;&nbsp;&lt;input type="text" name="myText"></code><br><code>&lt;/form></code></pre>
 
-# Header 1
-## Header 2
-### Header 3
+<h3>Additional Options</h3>
 
-- Bulleted
-- List
+<h4>Exclude from anticlear</h4>
+<p>Add class <code>form-anticlear-none</code> to the elements. This will be affected to the applied elements and its child elements.</p>
+<pre>&lt;input type="text" class="from-anticlear-none"></pre>
 
-1. Numbered
-2. List
+<h4>Form Clear Method</h4>
+<p><code>formAntiClear.clear()</code> :  to clear all the form elements coming inside of <code>form-anticlear</code> class.</p>
+<p><code>formAntiClear.clear(&lt;Selector>)</code> :  To clear the elements with selectors (id, classname etc).</p>
 
-**Bold** and _Italic_ and `Code` text
+<h4>Handling Event</h4>
+<p>Able to handle <code>anticleared</code> event to do something after data loaded to form.</p>
+<h5>Javascript</h5>
+<pre>document.addEventListener('anticleared', function (e) {
+     //Statements
+}, false);</pre>
+<h5>jQuery</h5>
+<pre>$(document).on('anticleared',function (e) {
+     //Statements
+})</pre>
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/akjpro/form-anticlear/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+<hr>
+<h2>Examples</h2>
+<h4> Normal Form without from_anticlear</h4>
+<h6>Code:</h6>
+<pre>
+  &lt;form class="">
+    &lt;input type="text" name="txt_name">
+  &lt;/form>
+</pre>
+<h6>Output:</h6>
+ <form class="">
+    <input type="text" name="txt_name">
+ </form>
